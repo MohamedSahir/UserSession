@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Javascript clearInterval by using Local variable</title>   
+    <link rel="stylesheet" href="Content/bootstrap/bootstrap.css"/>    
+</head>
+<body ng-app="myApp" >
+    
+    
+    
+    <a href="GlobalVariableTime.html">Gobal variable</a>
+    <br/>
+<b> Your Logout time : <span id="demo"></span> </b><br/><br/>
+    <a  ui-sref="home"> home</a>
+    <a  ui-sref="product"> product</a>Click to see the product navigation page and stop timer , it not stopping
+    
+    <div ui-view>
+
+    
+        
+        
+    </div>
+             <div id="modeldialog">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" style="z-index:20000">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    
+                                        <label class="session-expiration">
+                                            <img src="~/Images/Warning_Alert_Icon_26.png">
+                                          <span>Your session will expire in  another 2 minutes!!</span>
+                                          
+                                          
+                                        </label>
+                                    </div>
+                                    <div class="modal-body">                                  
+                                        <div class="session-message">
+                                          
+                                            <p class="time-message"><b>Any unsaved changes will be lost.</b></p>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <span class="time-messages"><b>click Proceed to stay login.</b></span>                                
+                        <button type="button" class="btn btn-default btn-sm" ng-click="LogOut()">Logout</button>
+                         <button type="button" class="btn btn-primary btn-sm" onclick="proceed()">Proceed</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                                                                          
+
+    <h1>Description sample demo:</h1>
+        
+        
+    <p>Requirement is </p>
+    
+    
+    Every 1 minute Idle check is running for user active or not
+    <p>
+     
+     
+after user login,if user is idle for 5 minutes, 3 minutes gets the popup .
+
+the pop have proceed button,if click the proceed , again extend 5 minutes,
+
+After 3 minutes , get the popup.else logout.
+
+
+
+In Ui router ,if user navigates between views, extend the time.
+
+In proceed function also extend the time.
+
+In Http request also  handle the same.
+
+
+
+In below example ,click product  and navigate the page. if stopsession button triggered , need to clear the session. But its not working now.
+
+
+Problem:
+
+If i am using Global variable as idlecheck, after second time click proceed button , the functionality is not working in correct manner,  In Between 3- 5minutes,its logout and before 3 minutes getting warning. for this problem , go to local variable.
+
+the pop up is coming and logout, but not exactly popup comes at 3 minutes.
+
+
+If using as local variable working as expected. But not able to clear the intervals.</p>
+    
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="LocalVariableApp.js"></script>
+  
+</body>
+</html>
